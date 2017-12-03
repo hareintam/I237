@@ -29,7 +29,7 @@ BLANK_FW = tooling/atemega2560-blank-user-code/bin/atmega2560-user-code-blank.ih
 # Arduino device file defaults to /dev/ttyACM0
 # Use shell command export to define alternative device file
 # Example: export ARDUINO=/dev/ttyACM0
-ARDUINO ?= /dev/tty.usbmodem1411
+ARDUINO ?= /dev/tty.usbmodem1421
 
 # Source files. wildcard "uses" all .c files in src and lib directory
 SRCDIR = src
