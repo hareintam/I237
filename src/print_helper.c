@@ -1,24 +1,29 @@
 #include <stdio.h>
+#include <avr/pgmspace.h>
 #include "print_helper.h"
+#include "../lib/andygock_avr-uart/uart.h"
 
-int print_ascii_tbl (FILE *stream)
+void print_ascii_tbl(void)
 {
     for (char c = ' '; c <= '~'; c++) {
-        if (!fprintf(stream, "%c ", c)) {
-            return 0;
-        };
-    };
+        uart0_putc(c);
+    }
 
-    return 0;
+    uart0_puts_p(PSTR("\r\n"));
 }
 
-int print_for_human (FILE *stream, const unsigned char *array, const int len)
+void print_for_human(const unsigned char *array, const size_t len)
 {
-    if (len > 1) {
-        for (int i = 0; i < len; i++) {
-            fprintf(stream, "\"0x%02X\" ", array[i]);
-        };
-    };
+    for (size_t i = 0; i < len; i++) {
+        if (array[i] >= ' ' && array[i] <= '~') {
+            uart0_putc(array[i]);
+        } else {
+            uart0_puts_p(PSTR("\"0x"));
+            uart0_putc((array[i] >> 4) + ((array[i] >> 4) <= 9 ? 0x30 : 0x37));
+            uart0_putc((array[i] & 0x0F) + ((array[i] & 0x0F) <= 9 ? 0x30 : 0x37));
+            uart0_putc('"');
+        }
+    }
 
-    return 0;
+    uart0_puts_p(PSTR("\r\n"));
 }
