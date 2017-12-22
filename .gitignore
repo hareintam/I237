@@ -1,5 +1,7 @@
 # Build products
 bin/*
+.idea
+.iml
 
 # astyle formatter preserved files
 *.orig
