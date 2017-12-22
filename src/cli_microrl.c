@@ -89,7 +89,7 @@ void cli_print_ascii_tbls(const char *const *argv)
     for (uint8_t i = 0; i < 128; i++) {
         ascii_tbl[i] = i;
     }
-    
+
     print_for_human(ascii_tbl, NUM_ELEMS(ascii_tbl));
 }
 
@@ -119,7 +119,7 @@ void cli_handle_number(const char *const *argv)
 void cli_print_cmd_error(void)
 {
     uart0_puts_p(PSTR("\n\r"));
-    uart0_puts_p(PSTR("Command not implemented.\n\r Use <help> to get help.\n\r"));
+    uart0_puts_p(PSTR("Command not implemented.\n\rUse <help> to get help.\n\r"));
 }
 
 void cli_print_cmd_arg_error(void)
@@ -141,11 +141,12 @@ int cli_execute(int argc, const char *const *argv)
             }
 
             // Hand argv over to function pointer,
-            // cross fingers and hope that funcion handles it properly
+            // cross fingers and hope that function handles it properly
             cli_cmds[i].func_p (argv);
             return 0;
         }
     }
+
     cli_print_cmd_error();
     return 0;
 }

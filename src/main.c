@@ -74,7 +74,7 @@ static inline void heartbeat(void)
     time_t now = time(NULL);
 
     if (prev_time != now) {
-        //Print uptime to uart1
+        //Print uptime to errcon
         ltoa(now, ascii_buf, 10);
         uart1_puts_p(PSTR("Uptime: "));
         uart1_puts(ascii_buf);
