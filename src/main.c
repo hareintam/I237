@@ -55,6 +55,8 @@ static inline void init_errcon(void)
 {
     uart1_init(UART_BAUD_SELECT(UART_BAUD, F_CPU));
     uart1_puts_p(PSTR("Console started\r\n"));
+    uart1_puts_p(PSTR(VER_LIBC));
+    uart1_puts_p(PSTR(VER_FW));
 }
 
 static inline void init_sys_timer(void)

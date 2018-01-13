@@ -131,6 +131,9 @@ void cli_print_cmd_arg_error(void)
 
 int cli_execute(int argc, const char *const *argv)
 {
+    // Move cursor to new line. Then user can see what was entered.
+    uart0_puts_p(PSTR("\n\r"));
+    
     for (uint8_t i = 0; i < NUM_ELEMS(cli_cmds); i++) {
         if (!strcmp_P(argv[0], cli_cmds[i].cmd)) {
             // Test do we have correct arguments to run command
