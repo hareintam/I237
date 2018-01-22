@@ -8,4 +8,5 @@
 
 extern PGM_P const stud_name[];
 extern PGM_P const numbers[];
+
 #endif /* HMI_MSG_H_ */

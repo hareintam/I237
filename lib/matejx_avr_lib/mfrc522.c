@@ -18,7 +18,7 @@
 #define SPI_CS_LOW MFRC522_SS_PORT &= ~_BV(MFRC522_SS_BIT)
 #define SPI_CS_HIGH MFRC522_SS_PORT |= _BV(MFRC522_SS_BIT)
 
-static const byte FIFO_SIZE = 64;		// The FIFO is 64 bytes.
+//static const byte FIFO_SIZE = 64;		// The FIFO is 64 bytes.
 
 void MFRC522_init() {
 	// Set the chipSelectPin as digital output, do not select the slave yet

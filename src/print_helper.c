@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <string.h>
 #include <avr/pgmspace.h>
+#include <stdlib.h>
 #include "print_helper.h"
 #include "../lib/andygock_avr-uart/uart.h"
 
